@@ -15,6 +15,17 @@ import java.util.*;
 
 
 public class Main {
+    /*
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }*/
+
     public static void main(String[] args) throws ImmposiblePassDiagnostic, NoAccesException {
 
         //Транспорт
@@ -88,7 +99,7 @@ public class Main {
 
         ///Работа с коллекциями HASHMAP
         //Механики лист(ХЭШ-МАПА)
-
+/*
         Map<Transport, Mechanics> mechanicslist = new HashMap<>();
         mechanicslist.put(petr.getMachine(), sokolov);
         mechanicslist.put(ivan.getMachine(), solovev);
@@ -100,6 +111,26 @@ public class Main {
         for (Map.Entry<Transport, Mechanics> me : set){
             System.out.println(me.getKey() + ";  " + me.getValue());
         }
+*/
+        //Работа с коллекциями HASHSET
+        //ВОДИТЕЛИ лист(ХЭШ-СЕТ) + Итератор
+
+        HashSet<Driver> drivers= new HashSet<>();
+        drivers.add(petrov);
+        drivers.add(ivanov);
+        drivers.add(sidorov);
+        drivers.add(petrov);
+        drivers.add(ivanov);
+        drivers.add(petrov);
+        drivers.add(ivanov);
+
+        Iterator<Driver> iter = drivers.iterator();
+        while (iter.hasNext()){
+            System.out.println(iter.next());
+        }
+
+
+
 
     }
 }
