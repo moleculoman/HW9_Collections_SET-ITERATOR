@@ -2,8 +2,10 @@ package Drivers;
 
 import Transports.Transport;
 
+import java.util.Objects;
+
 public class Driver <T extends Transport> {
-    private String fullName;
+    private String sFM;
 
     private boolean license;
 
@@ -11,18 +13,44 @@ public class Driver <T extends Transport> {
 
     private T machine;
 
-    public Driver(String fullName, boolean license, int experience, T machine) {
-        this.fullName = fullName;
+    public Driver(String sFM, boolean license, int experience, T machine) {
+        this.sFM = sFM;
         this.license = license;
         this.experience = experience;
         this.machine = machine;
     }
 
-    public Driver(String fullName, boolean license, int experience) {
+    public Driver(String sFM, boolean license, int experience) {
+        this.sFM = sFM;
+        this.license = license;
+        this.experience = experience;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return license == driver.license && experience == driver.experience && Objects.equals(sFM, driver.sFM) && Objects.equals(machine, driver.machine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sFM, license, experience, machine);
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "sFM='" + sFM + '\'' +
+                ", license=" + license +
+                ", experience=" + experience +
+                ", machine=" + machine +
+                '}';
     }
 
     public String getFullName() {
-        return fullName;
+        return sFM;
     }
 
     public boolean isLicense() {

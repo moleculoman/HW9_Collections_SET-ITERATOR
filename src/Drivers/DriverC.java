@@ -10,8 +10,8 @@ public class DriverC extends Driver {
         return categoryC;
     }
 
-    public DriverC(String fullName, boolean license, int experience, String categoryC) throws NoAccesException {
-        super(fullName, license, experience);
+    public DriverC(String sFM, boolean license, int experience, String categoryC) throws NoAccesException {
+        super(sFM, license, experience);
         if (categoryC == null || categoryC.isEmpty() || categoryC.isBlank()) {
             throw new NoAccesException("Отсутсвует водительское удостоверение категории " + getCategoryC());
         } else this.categoryC = categoryC;
